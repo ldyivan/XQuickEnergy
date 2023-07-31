@@ -19,7 +19,7 @@ import pansong291.xposed.quickenergy.util.FriendIdMap;
 public class SettingsOtherActivity extends Activity
 {
     CheckBox cb_receivePoint, cb_openTreasureBox, cb_donateCharityCoin,
-            cb_kbSignIn;
+            cb_kbSignIn, cb_ecoLifeTick;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -35,6 +35,7 @@ public class SettingsOtherActivity extends Activity
         cb_openTreasureBox = findViewById(R.id.cb_openTreasureBox);
         cb_donateCharityCoin = findViewById(R.id.cb_donateCharityCoin);
         cb_kbSignIn = findViewById(R.id.cb_kbSignIn);
+        cb_ecoLifeTick = findViewById(R.id.cb_ecoLifeTick);
     }
 
     @Override
@@ -45,6 +46,7 @@ public class SettingsOtherActivity extends Activity
         cb_openTreasureBox.setChecked(Config.openTreasureBox());
         cb_donateCharityCoin.setChecked(Config.donateCharityCoin());
         cb_kbSignIn.setChecked(Config.kbSginIn());
+        cb_ecoLifeTick.setChecked(Config.ecoLifeTick());
     }
 
     @SuppressLint("NonConstantResourceId")
@@ -68,6 +70,10 @@ public class SettingsOtherActivity extends Activity
 
                 case R.id.cb_kbSignIn:
                     Config.setKbSginIn(cb.isChecked());
+                    break;
+
+                case R.id.cb_ecoLifeTick:
+                    Config.setEcoLifeTick(cb.isChecked());
                     break;
             }
         } else if (v instanceof Button) {

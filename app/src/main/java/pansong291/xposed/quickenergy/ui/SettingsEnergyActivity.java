@@ -19,7 +19,8 @@ import pansong291.xposed.quickenergy.util.FriendIdMap;
 public class SettingsEnergyActivity extends Activity
 {
     CheckBox cb_collectWateringBubble, cb_collectEnergy, cb_helpFriendCollect, cb_receiveForestTaskAward,
-            cb_cooperateWater, cb_energyRain, cb_limitCollect, cb_doubleCard;
+            cb_cooperateWater, cb_energyRain, cb_limitCollect, cb_doubleCard,
+            cb_ExchangeEnergyDoubleClick, cb_reserve, cb_ancientTree, cb_ancientTreeOnlyWeek;;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -39,6 +40,10 @@ public class SettingsEnergyActivity extends Activity
         cb_energyRain = findViewById(R.id.cb_energyRain);
         cb_limitCollect = findViewById(R.id.cb_limitCollect);
         cb_doubleCard = findViewById(R.id.cb_doubleCard);
+        cb_ExchangeEnergyDoubleClick = findViewById(R.id.cb_ExchangeEnergyDoubleClick);
+        cb_reserve = findViewById(R.id.cb_reserve);
+        cb_ancientTree = findViewById(R.id.cb_ancientTree);
+        cb_ancientTreeOnlyWeek = findViewById(R.id.cb_ancientTreeOnlyWeek);
     }
 
     @Override
@@ -54,6 +59,10 @@ public class SettingsEnergyActivity extends Activity
         cb_energyRain.setChecked(Config.energyRain());
         cb_limitCollect.setChecked(Config.isLimitCollect());
         cb_doubleCard.setChecked(Config.doubleCard());
+        cb_ExchangeEnergyDoubleClick.setChecked(Config.ExchangeEnergyDoubleClick());
+        cb_reserve.setChecked(Config.reserve());
+        cb_ancientTree.setChecked(Config.ancientTree());
+        cb_ancientTreeOnlyWeek.setChecked(Config.ancientTreeOnlyWeek());
     }
 
     @SuppressLint("NonConstantResourceId")
@@ -93,6 +102,22 @@ public class SettingsEnergyActivity extends Activity
 
                 case R.id.cb_energyRain:
                     Config.setEnergyRain(cb.isChecked());
+                    break;
+
+                case R.id.cb_ExchangeEnergyDoubleClick:
+                    Config.setExchangeEnergyDoubleClick(cb.isChecked());
+                    break;
+
+                case R.id.cb_reserve:
+                    Config.setReserve(cb.isChecked());
+                    break;
+
+                case R.id.cb_ancientTree:
+                    Config.setAncientTree(cb.isChecked());
+                    break;
+
+                case R.id.cb_ancientTreeOnlyWeek:
+                    Config.setAncientTreeOnlyWeek(cb.isChecked());
                     break;
             }
         } else if (v instanceof Button) {
@@ -154,6 +179,20 @@ public class SettingsEnergyActivity extends Activity
                     ListDialog.show(this, btn.getText(), AlipayUser.getList(), Config.getGiveEnergyRainList(), null);
                     break;
 
+                case R.id.btn_ExchangeEnergyDoubleClickCount:
+                    EditDialog.showEditDialog(this, btn.getText(),
+                            EditDialog.EditMode.EXCHANGE_ENERGY_DOUBLE_CLICK_COUNT);
+                    break;
+
+                case R.id.btn_reserveList:
+                    ListDialog.show(this, btn.getText(), AlipayReserve.getList(), Config.getReserveList(),
+                            Config.getReserveCountList());
+                    break;
+
+                case R.id.btn_ancientTreeCityCodeList:
+                    ListDialog.show(this, btn.getText(), CityCode.getList(), Config.getAncientTreeCityCodeList(),
+                            null);
+                    break;
             }
         }
     }

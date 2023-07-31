@@ -52,7 +52,8 @@
     <string name="more">更多</string>
     <string name="support_developer">支持当前开发者</string>
     <string name="hello_user">你好，旅行者！</string>
-    <string name="support_xqe_developer">支持XQE原作者</string>
+    <string name="support_xqe_developer">支持XQE修复开发者</string>
+    <string name="support_first_developer">支持XQE原开发者</string>
     <string name="forest_log">森林记录</string>
     <string name="farm_log">庄园记录</string>
     <string name="other_log">其他记录</string>
@@ -88,7 +89,8 @@
     <string name="use_double_card_time">使用双击卡时间(比如“0000-0100,0700-0730”代表晚上0点到1点，早上7点到7点半，有能量并且没有使用双击卡就会自动使用)</string>
     <string name="animal_sleep_time">小鸡睡眠时间(设置方式同双击卡)</string>
     <string name="ancient_tree_area_code_list">古树区划代码列表</string>
-    <string name="visit_github">访问GitHub</string>
+    <string name="visit_github">开原地址</string>
+    <string name="visit_qqGround">加入QQ频道</string>
     <string name="help_wiki">帮助文档</string>
     <string name="exchange_energy_double_click">活力值兑换限时双击卡</string>
     <string name="exchange_energy_double_click_count">兑换限时双击卡数量</string>

@@ -38,6 +38,8 @@ public class SettingsListActivity extends Activity {
                 R.drawable.icon_help,
                 R.drawable.icon_like,
                 R.drawable.icon_z1,
+                R.drawable.icon_z2,
+                R.drawable.icon_qqchanel,
                 R.drawable.icon_github};
 
         // 添加数据到数据源
@@ -49,7 +51,9 @@ public class SettingsListActivity extends Activity {
 
         dataList.add(getResources().getString(R.string.help_wiki)); //文档
         dataList.add(getResources().getString(R.string.support_developer)); //支持当前开发者
-        dataList.add(getResources().getString(R.string.support_xqe_developer)); //支持XQ原作者
+        dataList.add(getResources().getString(R.string.support_xqe_developer)); //支持修复开发者
+        dataList.add(getResources().getString(R.string.support_first_developer)); //支持XQE原作者
+        dataList.add(getResources().getString(R.string.visit_qqGround)); //加入QQ频道
         dataList.add(getResources().getString(R.string.visit_github));
 
         // 创建适配器并设置给ListView
@@ -85,16 +89,28 @@ public class SettingsListActivity extends Activity {
                         startActivity(help);
                         break;
                     case 6:
+                        Intent dev = new Intent(SettingsListActivity.this, HtmlViewerActivity.class);
+                        dev.setData(Uri.parse("https://dz.hzv5.cn/z"));
+                        startActivity(dev);
+                        break;
+                    case 7:
                         new AlertDialog.Builder(SettingsListActivity.this)
                                 .setView(R.layout.donation_view)
                                 .setPositiveButton("关闭", null)
                                 .create().show();
                         break;
-                    case 7:
+                    case 8:
                         Intent it2 = new Intent(Intent.ACTION_VIEW, Uri.parse("alipays://platformapi/startapp?saId=10000007&qrcode=https%3A%2F%2Fqr.alipay.com%2Ftsx00339eflkuhhtfctcn48"));
                         startActivity(it2);
                         break;
-                    case 8:
+
+                    case 9:
+                        Intent qqpd = new Intent(SettingsListActivity.this, HtmlViewerActivity.class);
+                        qqpd.setData(Uri.parse("https://pd.qq.com/s/de0m20a0q"));
+                        startActivity(qqpd);
+                        break;
+
+                    case 10:
                         Intent it = new Intent(SettingsListActivity.this, HtmlViewerActivity.class);
                         it.setData(Uri.parse("https://github.com/constanline/XQuickEnergy"));
                         startActivity(it);

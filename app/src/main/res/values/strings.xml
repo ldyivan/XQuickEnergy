@@ -56,6 +56,7 @@
     <string name="more">MORE</string>
     <string name="support_developer">Support developer</string>
     <string name="support_xqe_developer">Support XQE developer</string>
+    <string name="support_first_developer">Support First developer</string>
     <string name="forest_log">Forest log</string>
     <string name="farm_log">Farm log</string>
     <string name="other_log">Other log</string>
@@ -90,6 +91,7 @@
     <string name="animal_sleep_time">Animal sleep time</string>
     <string name="ancient_tree_area_code_list">Ancient tree area code list</string>
     <string name="visit_github">Visit GitHub</string>
+    <string name="visit_qqGround">Visit QQchannel</string>
     <string name="help_wiki">Help Wiki</string>
     <string name="exchange_energy_double_click">Exchange energy double click</string>
     <string name="exchange_energy_double_click_count">Exchange energy double click count</string>
