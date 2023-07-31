@@ -85,7 +85,6 @@ public class Config
     /* other */
     public static final String jn_receivePoint = "receivePoint";
     public static final String jn_openTreasureBox = "openTreasureBox";
-    public static final String jn_receiveCoinAsset = "receiveCoinAsset";
     public static final String jn_donateCharityCoin = "donateCharityCoin";
     public static final String jn_minExchangeCount = "minExchangeCount";
     public static final String jn_latestExchangeTime = "latestExchangeTime";
@@ -171,7 +170,6 @@ public class Config
     /* other */
     private boolean receivePoint;
     private boolean openTreasureBox;
-    private boolean receiveCoinAsset;
     private boolean donateCharityCoin;
     private int minExchangeCount;
     private int latestExchangeTime;
@@ -793,17 +791,6 @@ public class Config
         return getConfig().openTreasureBox;
     }
 
-    public static void setReceiveCoinAsset(boolean b)
-    {
-        getConfig().receiveCoinAsset = b;
-        hasChanged = true;
-    }
-
-    public static boolean receiveCoinAsset()
-    {
-        return getConfig().receiveCoinAsset;
-    }
-
     public static void setDonateCharityCoin(boolean b)
     {
         getConfig().donateCharityCoin = b;
@@ -954,8 +941,7 @@ public class Config
 
         c.receivePoint = true;
         c.openTreasureBox = true;
-        c.receiveCoinAsset = true;
-        c.donateCharityCoin = false;
+        c.donateCharityCoin = true;
         c.kbSignIn = true;
         c.syncStepCount = 22000;
         c.ecoLifeTick = true;
@@ -1199,9 +1185,7 @@ public class Config
 
             config.openTreasureBox = jo.optBoolean(jn_openTreasureBox, true);
 
-            config.receiveCoinAsset = jo.optBoolean(jn_receiveCoinAsset, true);
-
-            config.donateCharityCoin = jo.optBoolean(jn_donateCharityCoin, false);
+            config.donateCharityCoin = jo.optBoolean(jn_donateCharityCoin, true);
 
             config.minExchangeCount = jo.optInt(jn_minExchangeCount);
 
@@ -1419,8 +1403,6 @@ public class Config
             jo.put(jn_receivePoint, config.receivePoint);
 
             jo.put(jn_openTreasureBox, config.openTreasureBox);
-
-            jo.put(jn_receiveCoinAsset, config.receiveCoinAsset);
 
             jo.put(jn_donateCharityCoin, config.donateCharityCoin);
 

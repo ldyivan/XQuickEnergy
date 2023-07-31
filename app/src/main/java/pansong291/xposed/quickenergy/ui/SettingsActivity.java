@@ -28,7 +28,7 @@ public class SettingsActivity extends Activity {
             cb_feedAnimal, cb_useAccelerateTool, cb_notifyFriend,
             cb_receivePoint, cb_openTreasureBox, cb_donateCharityCoin,
             cb_kbSignIn, cb_limitCollect, cb_doubleCard, cb_ExchangeEnergyDoubleClick, cb_reserve, cb_ecoLifeTick,
-            cb_ancientTree, cb_ancientTreeOnlyWeek, cb_receiveCoinAsset;
+            cb_ancientTree, cb_ancientTreeOnlyWeek;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,7 +68,6 @@ public class SettingsActivity extends Activity {
         cb_notifyFriend = findViewById(R.id.cb_notifyFriend);
         cb_receivePoint = findViewById(R.id.cb_receivePoint);
         cb_openTreasureBox = findViewById(R.id.cb_openTreasureBox);
-        cb_receiveCoinAsset = findViewById(R.id.cb_receiveCoinAsset);
         cb_donateCharityCoin = findViewById(R.id.cb_donateCharityCoin);
         cb_kbSignIn = findViewById(R.id.cb_kbSignIn);
         cb_limitCollect = findViewById(R.id.cb_limitCollect);
@@ -108,7 +107,6 @@ public class SettingsActivity extends Activity {
         cb_notifyFriend.setChecked(Config.notifyFriend());
         cb_receivePoint.setChecked(Config.receivePoint());
         cb_openTreasureBox.setChecked(Config.openTreasureBox());
-        cb_receiveCoinAsset.setChecked(Config.receiveCoinAsset());
         cb_donateCharityCoin.setChecked(Config.donateCharityCoin());
         cb_kbSignIn.setChecked(Config.kbSginIn());
         cb_limitCollect.setChecked(Config.isLimitCollect());
@@ -241,10 +239,6 @@ public class SettingsActivity extends Activity {
 
                 case R.id.cb_openTreasureBox:
                     Config.setOpenTreasureBox(cb.isChecked());
-                    break;
-
-                case R.id.cb_receiveCoinAsset:
-                    Config.setReceiveCoinAsset(cb.isChecked());
                     break;
 
                 case R.id.cb_donateCharityCoin:
