@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical"
+	android:padding="12dp">
+
+	<LinearLayout
+		android:orientation="vertical"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content">
+
+		<TextView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:text="@string/forest_configuration"
+			android:background="#FF898989"
+			android:textColor="#FFFFFFFF"
+			android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+		<CheckBox
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:text="@string/collect_energy"
+			android:onClick="onClick"
+			android:minHeight="50dp"
+			android:id="@+id/cb_collectEnergy"/>
+
+		<Button
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			style="?android:attr/buttonBarButtonStyle"
+			android:text="@string/check_interval_minutes"
+			android:textAllCaps="false"
+			android:onClick="onClick"
+			android:minHeight="50dp"
+			android:gravity="start|center_vertical"
+			android:background="@drawable/button"
+			android:id="@+id/btn_checkInterval"
+			android:paddingStart="8dp"/>
+
+		<CheckBox
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:text="@string/collect_watering_bubble"
+			android:onClick="onClick"
+			android:minHeight="50dp"
+			android:id="@+id/cb_collectWateringBubble"/>
+
+		<Button
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			style="?android:attr/buttonBarButtonStyle"
+			android:text="@string/advance_time_milliseconds"
+			android:textAllCaps="false"
+			android:onClick="onClick"
+			android:minHeight="50dp"
+			android:gravity="start|center_vertical"
+			android:background="@drawable/button"
+			android:id="@+id/btn_advanceTime"
+			android:paddingStart="8dp"/>
+
+		<Button
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			style="?android:attr/buttonBarButtonStyle"
+			android:text="@string/collect_interval_milliseconds"
+			android:textAllCaps="false"
+			android:onClick="onClick"
+			android:minHeight="50dp"
+			android:gravity="start|center_vertical"
+			android:background="@drawable/button"
+			android:id="@+id/btn_collectInterval"
+			android:paddingStart="8dp"/>
+
+		<Button
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			style="?android:attr/buttonBarButtonStyle"
+			android:text="@string/collect_timeout_seconds"
+			android:textAllCaps="false"
+			android:onClick="onClick"
+			android:minHeight="50dp"
+			android:gravity="start|center_vertical"
+			android:background="@drawable/button"
+			android:id="@+id/btn_collectTimeout"
+			android:paddingStart="8dp"/>
+
+		<CheckBox
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:text="@string/limit_collect"
+			android:onClick="onClick"
+			android:minHeight="50dp"
+			android:id="@+id/cb_limitCollect"/>
+
+		<Button
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			style="?android:attr/buttonBarButtonStyle"
+			android:text="@string/limit_count_per_minute"
+			android:textAllCaps="false"
+			android:onClick="onClick"
+			android:minHeight="50dp"
+			android:gravity="start|center_vertical"
+			android:background="@drawable/button"
+			android:id="@+id/btn_limitCount"
+			android:paddingStart="8dp"/>
+
+		<CheckBox
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:text="@string/use_double_card"
+			android:onClick="onClick"
+			android:minHeight="50dp"
+			android:id="@+id/cb_doubleCard"/>
+
+		<Button
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			style="?android:attr/buttonBarButtonStyle"
+			android:text="@string/use_double_card_time"
+			android:textAllCaps="false"
+			android:onClick="onClick"
+			android:minHeight="50dp"
+			android:gravity="start|center_vertical"
+			android:background="@drawable/button"
+			android:id="@+id/btn_doubleCardTime"
+			android:paddingStart="8dp"/>
+
+		<Button
+			android:id="@+id/btn_returnWater30"
+			style="?android:attr/buttonBarButtonStyle"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:background="@drawable/button"
+			android:gravity="start|center_vertical"
+			android:minHeight="50dp"
+			android:onClick="onClick"
+			android:paddingStart="8dp"
+			android:text="@string/return_water_33"
+			android:textAllCaps="false" />
+
+		<Button
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			style="?android:attr/buttonBarButtonStyle"
+			android:text="@string/return_water_18"
+			android:textAllCaps="false"
+			android:onClick="onClick"
+			android:minHeight="50dp"
+			android:gravity="start|center_vertical"
+			android:background="@drawable/button"
+			android:id="@+id/btn_returnWater20"
+			android:paddingStart="8dp"/>
+
+		<Button
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			style="?android:attr/buttonBarButtonStyle"
+			android:text="@string/return_water_10"
+			android:textAllCaps="false"
+			android:onClick="onClick"
+			android:minHeight="50dp"
+			android:gravity="start|center_vertical"
+			android:background="@drawable/button"
+			android:id="@+id/btn_returnWater10"
+			android:paddingStart="8dp"/>
+
+		<CheckBox
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:text="@string/help_friend_collect"
+			android:onClick="onClick"
+			android:minHeight="50dp"
+			android:id="@+id/cb_helpFriendCollect"/>
+
+		<Button
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			style="?android:attr/buttonBarButtonStyle"
+			android:text="@string/don_t_collect_list"
+			android:textAllCaps="false"
+			android:onClick="onClick"
+			android:minHeight="50dp"
+			android:gravity="start|center_vertical"
+			android:background="@drawable/button"
+			android:id="@+id/btn_dontCollectList"
+			android:paddingStart="8dp"/>
+
+		<Button
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			style="?android:attr/buttonBarButtonStyle"
+			android:text="@string/don_t_help_collect_list"
+			android:textAllCaps="false"
+			android:onClick="onClick"
+			android:minHeight="50dp"
+			android:gravity="start|center_vertical"
+			android:background="@drawable/button"
+			android:id="@+id/btn_dontHelpCollectList"
+			android:paddingStart="8dp"/>
+
+		<CheckBox
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:text="@string/receive_forest_task_award"
+			android:onClick="onClick"
+			android:minHeight="50dp"
+			android:id="@+id/cb_receiveForestTaskAward"/>
+
+		<Button
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			style="?android:attr/buttonBarButtonStyle"
+			android:text="@string/water_friend_list"
+			android:textAllCaps="false"
+			android:onClick="onClick"
+			android:minHeight="50dp"
+			android:gravity="start|center_vertical"
+			android:background="@drawable/button"
+			android:id="@+id/btn_waterFriendList"
+			android:paddingStart="8dp"/>
+
+		<CheckBox
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:text="@string/cooperate_water"
+			android:onClick="onClick"
+			android:minHeight="50dp"
+			android:id="@+id/cb_cooperateWater"/>
+
+		<Button
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			style="?android:attr/buttonBarButtonStyle"
+			android:text="@string/cooperate_water_list"
+			android:textAllCaps="false"
+			android:onClick="onClick"
+			android:minHeight="50dp"
+			android:gravity="start|center_vertical"
+			android:background="@drawable/button"
+			android:id="@+id/btn_cooperateWaterList"
+			android:paddingStart="8dp"/>
+
+		<CheckBox
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:text="@string/energy_rain"
+				android:onClick="onClick"
+				android:minHeight="50dp"
+				android:id="@+id/cb_energyRain"/>
+
+		<Button
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			style="?android:attr/buttonBarButtonStyle"
+			android:text="@string/give_energy_rain_list"
+			android:textAllCaps="false"
+			android:onClick="onClick"
+			android:minHeight="50dp"
+			android:gravity="start|center_vertical"
+			android:background="@drawable/button"
+			android:id="@+id/btn_giveEnergyRainList"
+			android:paddingStart="8dp"/>
+
+		<Button
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			style="?android:attr/buttonBarButtonStyle"
+			android:text="@string/ancient_tree_area_code_list"
+			android:textAllCaps="false"
+			android:onClick="onClick"
+			android:minHeight="50dp"
+			android:gravity="start|center_vertical"
+			android:background="@drawable/button"
+			android:id="@+id/btn_ancientTreeAreaCodeList"
+			android:paddingStart="8dp"/>
+
+	</LinearLayout>
+
+</LinearLayout>
+

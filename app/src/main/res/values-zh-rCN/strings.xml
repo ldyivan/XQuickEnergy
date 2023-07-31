@@ -88,6 +88,7 @@
     <string name="animal_sleep_time">小鸡睡眠时间(设置方式同双击卡)</string>
     <string name="ancient_tree_area_code_list">古树区划代码列表</string>
     <string name="visit_github">访问GitHub</string>
+    <string name="help_wiki">帮助文档</string>
     <string name="tips">鸡汤</string>
 
 </resources>

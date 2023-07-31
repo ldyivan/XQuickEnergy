@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical"
+	android:padding="12dp">
+
+
+	<LinearLayout
+		android:orientation="vertical"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content">
+
+		<TextView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:text="@string/more"
+			android:background="#FF898989"
+			android:textColor="#FFFFFFFF"
+			android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+		<Button
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			style="?android:attr/buttonBarButtonStyle"
+			android:text="@string/support_xqe_developer"
+			android:textAllCaps="false"
+			android:onClick="onClick"
+			android:minHeight="50dp"
+			android:gravity="start|center_vertical"
+			android:background="@drawable/button"
+			android:id="@+id/btn_donation_xqe_developer"
+			android:paddingStart="8dp"/>
+
+		<Button
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			style="?android:attr/buttonBarButtonStyle"
+			android:text="@string/support_developer"
+			android:textAllCaps="false"
+			android:onClick="onClick"
+			android:minHeight="50dp"
+			android:gravity="start|center_vertical"
+			android:background="@drawable/button"
+			android:id="@+id/btn_donation_developer"
+			android:paddingStart="8dp"/>
+
+	</LinearLayout>
+
+</LinearLayout>
+

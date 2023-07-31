@@ -59,7 +59,38 @@
             android:name=".ui.HtmlViewerActivity"
             android:resizeableActivity="true"
             tools:targetApi="n" />
-        
+
+        <activity
+            android:name=".ui.SettingsListActivity"
+            android:resizeableActivity="true"
+            tools:targetApi="n" />
+
+        <activity
+            android:name=".ui.SettingsNormalActivity"
+            android:resizeableActivity="true"
+            tools:targetApi="n" />
+
+        <activity
+            android:name=".ui.SettingsEnergyActivity"
+            android:resizeableActivity="true"
+            tools:targetApi="n" />
+
+        <activity
+            android:name=".ui.SettingsFarmActivity"
+            android:resizeableActivity="true"
+            tools:targetApi="n" />
+
+        <activity
+            android:name=".ui.SettingsOtherActivity"
+            android:resizeableActivity="true"
+            tools:targetApi="n" />
+
+        <activity
+            android:name=".ui.SettingsMoreActivity"
+            android:resizeableActivity="true"
+            tools:targetApi="n" />
+
+
     </application>
 
 </manifest>
