@@ -72,7 +72,7 @@
     <string name="use_double_card">使用双击卡</string>
     <string name="wait_when_exception">异常等待时间(分钟)</string>
     <string name="stay_awake_target">保活目标</string>
-    <string name="app_name">仙人掌</string>
+    <string name="app_name">不曜</string>
     <string name="search">搜索</string>
     <string name="last">上一个</string>
     <string name="next">下一个</string>
@@ -91,7 +91,6 @@
     <string name="ancient_tree_area_code_list">古树区划代码列表</string>
     <string name="visit_github">访问GitHub</string>
     <string name="help_wiki">帮助文档</string>
-    <string name="tips">鸡汤</string>
     <string name="exchange_energy_double_click">活力值兑换限时双击卡</string>
     <string name="exchange_energy_double_click_count">兑换限时双击卡数量</string>
     <string name="reserve">兑换保护地（会使用能量慎用！）</string>

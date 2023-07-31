@@ -4,11 +4,13 @@
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	android:orientation="vertical"
+	android:padding="10dp"
 	android:gravity="center_horizontal">
 
 	<TextView
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
+		android:layout_marginTop="15dp"
 		android:id="@+id/tv_unactive"
 		android:text="@string/unactivated"
 		android:textAppearance="?android:attr/textAppearanceLarge"
@@ -17,6 +19,7 @@
 	<TextView
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
+		android:layout_marginTop="15dp"
 		android:id="@+id/tv_statistics"
 		android:textAppearance="?android:attr/textAppearanceSmall"
 		android:textColor="#FF000000"/>
@@ -24,6 +27,7 @@
 	<Button
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
+		android:layout_marginTop="15dp"
 		style="?android:attr/buttonBarButtonStyle"
 		android:text="@string/forest_log"
 		android:textAllCaps="false"

@@ -154,9 +154,6 @@ public class SettingsEnergyActivity extends Activity
                     ListDialog.show(this, btn.getText(), AlipayUser.getList(), Config.getGiveEnergyRainList(), null);
                     break;
 
-                case R.id.btn_ancientTreeAreaCodeList:
-                    ListDialog.show(this, btn.getText(), AreaCode.getList(), Config.getAncientTreeAreaCodeList(), null);
-                    break;
             }
         }
     }
