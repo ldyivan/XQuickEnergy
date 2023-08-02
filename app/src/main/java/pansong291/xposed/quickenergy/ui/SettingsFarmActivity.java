@@ -156,7 +156,7 @@ public class SettingsFarmActivity extends Activity
         super.onPause();
         if(Config.hasChanged) {
             Config.hasChanged = !Config.saveConfigFile();
-            Toast.makeText(this, "Configuration saved", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "保存成功!", Toast.LENGTH_SHORT).show();
         }
         FriendIdMap.saveIdMap();
         CooperationIdMap.saveIdMap();

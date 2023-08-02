@@ -20,7 +20,8 @@ public class SettingsEnergyActivity extends Activity
 {
     CheckBox cb_collectWateringBubble, cb_collectEnergy, cb_helpFriendCollect, cb_receiveForestTaskAward,
             cb_cooperateWater, cb_energyRain, cb_limitCollect, cb_doubleCard,
-            cb_ExchangeEnergyDoubleClick, cb_reserve, cb_ancientTree, cb_ancientTreeOnlyWeek;;
+            cb_ExchangeEnergyDoubleClick, cb_reserve, cb_ancientTree, cb_ancientTreeOnlyWeek,
+            cb_antdodoCollect, cb_antOcean;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -44,6 +45,9 @@ public class SettingsEnergyActivity extends Activity
         cb_reserve = findViewById(R.id.cb_reserve);
         cb_ancientTree = findViewById(R.id.cb_ancientTree);
         cb_ancientTreeOnlyWeek = findViewById(R.id.cb_ancientTreeOnlyWeek);
+
+        cb_antdodoCollect = findViewById(R.id.cb_antdodoCollect);
+        cb_antOcean = findViewById(R.id.cb_antOcean);
     }
 
     @Override
@@ -63,6 +67,9 @@ public class SettingsEnergyActivity extends Activity
         cb_reserve.setChecked(Config.reserve());
         cb_ancientTree.setChecked(Config.ancientTree());
         cb_ancientTreeOnlyWeek.setChecked(Config.ancientTreeOnlyWeek());
+
+        cb_antdodoCollect.setChecked(Config.antdodoCollect());
+        cb_antOcean.setChecked(Config.antOcean());
     }
 
     @SuppressLint("NonConstantResourceId")
@@ -118,6 +125,14 @@ public class SettingsEnergyActivity extends Activity
 
                 case R.id.cb_ancientTreeOnlyWeek:
                     Config.setAncientTreeOnlyWeek(cb.isChecked());
+                    break;
+
+                case R.id.cb_antdodoCollect:
+                    Config.setAntdodoCollect(cb.isChecked());
+                    break;
+
+                case R.id.cb_antOcean:
+                    Config.setAntOcean(cb.isChecked());
                     break;
             }
         } else if (v instanceof Button) {
@@ -188,11 +203,6 @@ public class SettingsEnergyActivity extends Activity
                     ListDialog.show(this, btn.getText(), AlipayReserve.getList(), Config.getReserveList(),
                             Config.getReserveCountList());
                     break;
-
-                case R.id.btn_ancientTreeCityCodeList:
-                    ListDialog.show(this, btn.getText(), CityCode.getList(), Config.getAncientTreeCityCodeList(),
-                            null);
-                    break;
             }
         }
     }
@@ -202,7 +212,7 @@ public class SettingsEnergyActivity extends Activity
         super.onPause();
         if(Config.hasChanged) {
             Config.hasChanged = !Config.saveConfigFile();
-            Toast.makeText(this, "Configuration saved", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "保存成功!", Toast.LENGTH_SHORT).show();
         }
         FriendIdMap.saveIdMap();
         CooperationIdMap.saveIdMap();

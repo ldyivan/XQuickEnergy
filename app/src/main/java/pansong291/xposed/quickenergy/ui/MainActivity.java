@@ -133,7 +133,7 @@ public class MainActivity extends Activity {
                 .setChecked(state > PackageManager.COMPONENT_ENABLED_STATE_ENABLED);
         menu.add(0, 2, 0, R.string.export_the_statistic_file);
         menu.add(0, 3, 0, R.string.import_the_statistic_file);
-        //menu.add(0, 4, 0, R.string.settings);
+        menu.add(0, 4, 0, R.string.settings);
         menu.add(0, 5, 0, "设置");
         return super.onCreateOptionsMenu(menu);
     }
@@ -162,11 +162,11 @@ public class MainActivity extends Activity {
                 }
                 break;
 
-                /*
+
             case 4:
                 startActivity(new Intent(this, SettingsActivity.class));
                 break;
-                */
+
 
             case 5:
                 startActivity(new Intent(this, SettingsListActivity.class));
