@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebChromeClient;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -25,6 +26,16 @@ public class HtmlViewerActivity extends Activity {
 
         mWebView = findViewById(R.id.mwv_webview);
         pgb = findViewById(R.id.pgb_webview);
+
+        //常规属性设置
+        WebSettings settings = mWebView.getSettings();
+        settings.setCacheMode(WebSettings.LOAD_DEFAULT);
+        settings.setDomStorageEnabled(true);
+        settings.setJavaScriptCanOpenWindowsAutomatically(true);
+        settings.setJavaScriptEnabled(true);
+        settings.setAllowFileAccess(true);//设置可以访问文件
+        settings.setSupportZoom(false);//不支持缩放
+        settings.setBuiltInZoomControls(false);//设置此属性，可任意比例缩放
 
         mWebView.setWebChromeClient(
                 new WebChromeClient() {

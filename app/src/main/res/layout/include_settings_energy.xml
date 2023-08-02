@@ -15,7 +15,8 @@
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:text="@string/forest_configuration"
-			android:background="#FF898989"
+			android:padding="10dp"
+			android:background="#FF89bb89"
 			android:textColor="#FFFFFFFF"
 			android:textAppearance="?android:attr/textAppearanceMedium"/>
 
