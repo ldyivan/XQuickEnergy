@@ -80,6 +80,7 @@ public class AntForestRpcCall {
     public static String startEnergyRain() {
         return RpcUtil.request("alipay.antforest.forest.h5.startEnergyRain", "[{}]");
     }
+
     public static String energyRainSettlement(int saveEnergy, String token) {
         return RpcUtil.request("alipay.antforest.forest.h5.energyRainSettlement",
                 "[{\"activityPropNums\":0,\"saveEnergy\":" + saveEnergy + ",\"token\":\"" + token + "\"}]");
@@ -127,4 +128,27 @@ public class AntForestRpcCall {
     public static String testH5Rpc(String operationTpye, String requestDate) {
         return RpcUtil.request(operationTpye,requestDate);
     }
+
+    /* 神奇物种 */
+
+    public static String queryAnimalStatus() {
+        return RpcUtil.request("alipay.antdodo.rpc.h5.queryAnimalStatus",
+                "[{\"source\":\"chInfo_ch_appcenter__chsub_9patch\"}]");
+    }
+
+    public static String antdodoHomePage() {
+        return RpcUtil.request("alipay.antdodo.rpc.h5.homePage",
+                "[{}]");
+    }
+
+    public static String taskEntrance() {
+        return RpcUtil.request("alipay.antdodo.rpc.h5.taskEntrance",
+                "[{\"statusList\":[\"TODO\",\"FINISHED\"]}]");
+    }
+
+    public static String antdodoCollect() {
+        return RpcUtil.request("alipay.antdodo.rpc.h5.collect",
+                "[{}]");
+    }
+
 }

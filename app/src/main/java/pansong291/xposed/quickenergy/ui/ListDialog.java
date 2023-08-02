@@ -324,7 +324,7 @@ public class ListDialog
             }
             if(index < 0)
             {
-                Toast.makeText(p1.getContext(), "未搜到", Toast.LENGTH_SHORT).show();
+                Toast.makeText(p1.getContext(), "未找到", Toast.LENGTH_SHORT).show();
             }else
             {
                 lv_list.setSelection(index);

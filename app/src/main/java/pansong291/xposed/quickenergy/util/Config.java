@@ -56,7 +56,7 @@ public class Config
     public static final String jn_cooperateWater = "cooperateWater";
     public static final String jn_cooperateWaterList = "cooperateWaterList";
     public static final String jn_ancientTree = "ancientTree";
-    public static final String jn_ancientTreeCityCodeList = "ancientTreeCityCodeList";
+    public static final String jn_ancientTreeAreaCodeList = "ancientTreeAreaCodeList";
     public static final String jn_reserve = "reserve";
     public static final String jn_reserveList = "reserveList";
     public static final String jn_energyRain = "energyRain";
@@ -82,9 +82,14 @@ public class Config
     public static final String jn_animalSleepTime = "animalSleepTime";
     public static final String jn_notifyFriend = "notifyFriend";
     public static final String jn_dontNotifyFriendList = "dontNotifyFriendList";
+    public static final String jn_antdodoCollect = "antdodoCollect";
+
+    public static final String jn_antOcean = "antOcean";
+
     /* other */
     public static final String jn_receivePoint = "receivePoint";
     public static final String jn_openTreasureBox = "openTreasureBox";
+    public static final String jn_receiveCoinAsset = "receiveCoinAsset";
     public static final String jn_donateCharityCoin = "donateCharityCoin";
     public static final String jn_minExchangeCount = "minExchangeCount";
     public static final String jn_latestExchangeTime = "latestExchangeTime";
@@ -129,9 +134,10 @@ public class Config
     private List<Integer> waterCountList;
     private boolean cooperateWater;
     private List<String> cooperateWaterList;
+    private List<String> syncStepList;
     private List<Integer> cooperateWaterNumList;
     private boolean ancientTree;
-    private List<String> ancientTreeCityCodeList;
+    private List<String> ancientTreeAreaCodeList;
     private boolean energyRain;
     private boolean reserve;
     private List<String> reserveList;
@@ -144,6 +150,9 @@ public class Config
 
     private boolean exchangeEnergyDoubleClick;
     private int exchangeEnergyDoubleClickCount;
+    private boolean antdodoCollect;
+
+    private boolean antOcean;
 
     /* farm */
     private boolean enableFarm;
@@ -170,6 +179,7 @@ public class Config
     /* other */
     private boolean receivePoint;
     private boolean openTreasureBox;
+    private boolean receiveCoinAsset;
     private boolean donateCharityCoin;
     private int minExchangeCount;
     private int latestExchangeTime;
@@ -493,9 +503,9 @@ public class Config
         return getConfig().ancientTree;
     }
 
-    public static List<String> getAncientTreeCityCodeList()
+    public static List<String> getAncientTreeAreaCodeList()
     {
-        return getConfig().ancientTreeCityCodeList;
+        return getConfig().ancientTreeAreaCodeList;
     }
 
     public static void setReserve(boolean b)
@@ -562,6 +572,28 @@ public class Config
     public static boolean ancientTreeOnlyWeek()
     {
         return getConfig().ancientTreeOnlyWeek;
+    }
+
+    public static void setAntdodoCollect(boolean b)
+    {
+        getConfig().antdodoCollect = b;
+        hasChanged = true;
+    }
+
+    public static boolean antdodoCollect()
+    {
+        return getConfig().antdodoCollect;
+    }
+
+    public static void setAntOcean(boolean b)
+    {
+        getConfig().antOcean = b;
+        hasChanged = true;
+    }
+
+    public static boolean antOcean()
+    {
+        return getConfig().antOcean;
     }
 
     /* farm */
@@ -791,6 +823,17 @@ public class Config
         return getConfig().openTreasureBox;
     }
 
+    public static void setReceiveCoinAsset(boolean b)
+    {
+        getConfig().receiveCoinAsset = b;
+        hasChanged = true;
+    }
+
+    public static boolean receiveCoinAsset()
+    {
+        return getConfig().receiveCoinAsset;
+    }
+
     public static void setDonateCharityCoin(boolean b)
     {
         getConfig().donateCharityCoin = b;
@@ -841,26 +884,21 @@ public class Config
         hasChanged = true;
     }
 
-    public static boolean kbSginIn()
-    {
+    public static boolean kbSginIn() {
         return getConfig().kbSignIn;
     }
 
-        public static void setEcoLifeTick(boolean b)
-    {
+    public static void setEcoLifeTick(boolean b) {
         getConfig().ecoLifeTick = b;
         hasChanged = true;
     }
 
-    public static boolean ecoLifeTick()
-    {
+    public static boolean ecoLifeTick() {
         return getConfig().ecoLifeTick;
     }
     /* base */
-    private static Config getConfig()
-    {
-        if(config == null || shouldReload && config.immediateEffect)
-        {
+    private static Config getConfig() {
+        if(config == null || shouldReload && config.immediateEffect) {
             shouldReload = false;
             String confJson = null;
             if(FileUtils.getConfigFile().exists())
@@ -906,9 +944,10 @@ public class Config
         if(c.waterCountList == null) c.waterCountList = new ArrayList<>();
         c.cooperateWater = true;
         if(c.cooperateWaterList == null) c.cooperateWaterList = new ArrayList<>();
+        if(c.syncStepList == null) c.syncStepList = new ArrayList<>();
         if(c.cooperateWaterNumList == null) c.cooperateWaterNumList = new ArrayList<>();
         c.ancientTree = true;
-        if(c.ancientTreeCityCodeList == null) c.ancientTreeCityCodeList = new ArrayList<>();
+        c.ancientTreeAreaCodeList = new ArrayList<>();
         c.reserve = true;
         if(c.reserveList == null) c.reserveList = new ArrayList<>();
         if(c.reserveCountList == null) c.reserveCountList = new ArrayList<>();
@@ -917,6 +956,8 @@ public class Config
         c.exchangeEnergyDoubleClick = false;
         c.exchangeEnergyDoubleClickCount = 6;
         c.ancientTreeOnlyWeek = true;
+        c.antdodoCollect = true;
+        c.antOcean = true;
 
         c.enableFarm = true;
         c.rewardFriend = true;
@@ -941,7 +982,8 @@ public class Config
 
         c.receivePoint = true;
         c.openTreasureBox = true;
-        c.donateCharityCoin = true;
+        c.receiveCoinAsset = true;
+        c.donateCharityCoin = false;
         c.kbSignIn = true;
         c.syncStepCount = 22000;
         c.ecoLifeTick = true;
@@ -1063,14 +1105,11 @@ public class Config
 
             config.ancientTree = jo.optBoolean(jn_ancientTree, true);
 
-            config.ancientTreeCityCodeList = new ArrayList<>();
-            if(jo.has(jn_ancientTreeCityCodeList))
-            {
-                ja = jo.getJSONArray(jn_ancientTreeCityCodeList);
-                for(int i = 0; i < ja.length(); i++)
-                {
-                    jaa = ja.getJSONArray(i);
-                    config.ancientTreeCityCodeList.add(jaa.getString(0));
+            config.ancientTreeAreaCodeList = new ArrayList<>();
+            if (jo.has(jn_ancientTreeAreaCodeList)) {
+                ja = jo.getJSONArray(jn_ancientTreeAreaCodeList);
+                for(int i = 0; i < ja.length(); i++) {
+                    config.ancientTreeAreaCodeList.add(ja.getString(i));
                 }
             }
 
@@ -1108,6 +1147,10 @@ public class Config
             config.exchangeEnergyDoubleClickCount = jo.optInt("exchangeEnergyDoubleClickCount", 6);
 
             config.ancientTreeOnlyWeek = jo.optBoolean(jn_ancientTreeOnlyWeek, true);
+
+            config.antdodoCollect = jo.optBoolean(jn_antdodoCollect, true);
+
+            config.antOcean = jo.optBoolean(jn_antOcean, true);
 
             /* farm */
             config.enableFarm = jo.optBoolean(jn_enableFarm, true);
@@ -1185,7 +1228,9 @@ public class Config
 
             config.openTreasureBox = jo.optBoolean(jn_openTreasureBox, true);
 
-            config.donateCharityCoin = jo.optBoolean(jn_donateCharityCoin, true);
+            config.receiveCoinAsset = jo.optBoolean(jn_receiveCoinAsset, true);
+
+            config.donateCharityCoin = jo.optBoolean(jn_donateCharityCoin, false);
 
             config.minExchangeCount = jo.optInt(jn_minExchangeCount);
 
@@ -1307,14 +1352,12 @@ public class Config
 
             jo.put(jn_ancientTree, config.ancientTree);
 
+
             ja = new JSONArray();
-            for(int i = 0; i < config.ancientTreeCityCodeList.size(); i++)
-            {
-                jaa = new JSONArray();
-                jaa.put(config.ancientTreeCityCodeList.get(i));
-                ja.put(jaa);
+            for (String s : config.ancientTreeAreaCodeList) {
+                ja.put(s);
             }
-            jo.put(jn_ancientTreeCityCodeList, ja);
+            jo.put(jn_ancientTreeAreaCodeList, ja);
 
             jo.put(jn_reserve, config.reserve);
 
@@ -1343,6 +1386,10 @@ public class Config
             jo.put("exchangeEnergyDoubleClickCount", config.exchangeEnergyDoubleClickCount);
 
             jo.put(jn_ancientTreeOnlyWeek, config.ancientTreeOnlyWeek);
+
+            jo.put(jn_antdodoCollect, config.antdodoCollect);
+
+            jo.put(jn_antOcean, config.antOcean);
 
             /* farm */
             jo.put(jn_enableFarm, config.enableFarm);
@@ -1404,6 +1451,8 @@ public class Config
 
             jo.put(jn_openTreasureBox, config.openTreasureBox);
 
+            jo.put(jn_receiveCoinAsset, config.receiveCoinAsset);
+
             jo.put(jn_donateCharityCoin, config.donateCharityCoin);
 
             jo.put(jn_minExchangeCount, config.minExchangeCount);
@@ -1416,8 +1465,7 @@ public class Config
 
             jo.put(jn_ecoLifeTick, config.ecoLifeTick);
 
-        }catch(Throwable t)
-        {
+        } catch(Throwable t) {
             Log.printStackTrace(TAG, t);
         }
         return formatJson(jo, false);

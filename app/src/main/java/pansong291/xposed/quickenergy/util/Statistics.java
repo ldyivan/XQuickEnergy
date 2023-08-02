@@ -59,8 +59,10 @@ public class Statistics {
     private static final String TAG = Statistics.class.getCanonicalName();
     private static final String jn_year = "year", jn_month = "month", jn_day = "day",
             jn_collected = "collected", jn_helped = "helped", jn_watered = "watered",
-            jn_answerQuestionList = "answerQuestionList",
+            jn_answerQuestionList = "answerQuestionList", jn_syncStepList = "syncStepList",
+            jn_exchangeList = "exchangeList",
             jn_questionHint = "questionHint", jn_donationEgg = "donationEgg", jn_memberSignIn = "memberSignIn",
+
             jn_exchange = "exchange", jn_kbSignIn = "kbSignIn", jn_syncStep = "syncStep",
             jn_exchangeDoubleCard = "exchangeDoubleCard", jn_exchangeTimes = "exchangeTimes";
 
@@ -71,8 +73,12 @@ public class Statistics {
     // forest
     private ArrayList<WaterFriendLog> waterFriendLogList;
     private ArrayList<String> cooperateWaterList;
+
+    private ArrayList<String> syncStepList;
     private ArrayList<ReserveLog> reserveLogList;
-    private ArrayList<String> ancientTreeCityCodeList;
+    //    private ArrayList<String> ancientTreeCityCodeList;
+    private ArrayList<String> exchangeList;
+
     private int exchangeDoubleCard = 0;
     private int exchangeTimes = 0;
 
@@ -85,7 +91,6 @@ public class Statistics {
 
     // other
     private int memberSignIn = 0;
-    private int exchange = 0;
     private int kbSignIn = 0;
 
     private int syncStep = 0;
@@ -263,18 +268,18 @@ public class Statistics {
         }
     }
 
-    public static boolean canAncientTreeToday(String cityCode) {
-        Statistics stat = getStatistics();
-        return !stat.ancientTreeCityCodeList.contains(cityCode);
-    }
-
-    public static void ancientTreeToday( String cityCode) {
-        Statistics stat = getStatistics();
-        if (!stat.ancientTreeCityCodeList.contains(cityCode)) {
-            stat.ancientTreeCityCodeList.add(cityCode);
-            save();
-        }
-    }
+//    public static boolean canAncientTreeToday(String cityCode) {
+//        Statistics stat = getStatistics();
+//        return !stat.ancientTreeCityCodeList.contains(cityCode);
+//    }
+//
+//    public static void ancientTreeToday(String cityCode) {
+//        Statistics stat = getStatistics();
+//        if (!stat.ancientTreeCityCodeList.contains(cityCode)) {
+//            stat.ancientTreeCityCodeList.add(cityCode);
+//            save();
+//        }
+//    }
 
     public static boolean canAnswerQuestionToday(String uid) {
         Statistics stat = getStatistics();
@@ -356,15 +361,15 @@ public class Statistics {
         }
     }
 
-    public static boolean canExchangeToday() {
+    public static boolean canExchangeToday(String uid) {
         Statistics stat = getStatistics();
-        return stat.exchange < stat.day.time;
+        return !stat.exchangeList.contains(uid);
     }
 
-    public static void exchangeToday() {
+    public static void exchangeToday(String uid) {
         Statistics stat = getStatistics();
-        if (stat.exchange != stat.day.time) {
-            stat.exchange = stat.day.time;
+        if (!stat.exchangeList.contains(uid)) {
+            stat.exchangeList.add(uid);
             save();
         }
     }
@@ -373,11 +378,7 @@ public class Statistics {
         Statistics stat = getStatistics();
         if (stat.exchangeDoubleCard < stat.day.time) {
             return true;
-        } else if (stat.exchangeTimes < Config.getExchangeEnergyDoubleClickCount()) {
-            return true;
-        } else {
-            return false;
-        }
+        } else return stat.exchangeTimes < Config.getExchangeEnergyDoubleClickCount();
     }
 
     public static void exchangeDoubleCardToday(boolean iSsuccess) {
@@ -411,15 +412,15 @@ public class Statistics {
         }
     }
 
-    public static boolean canSyncStepToday() {
+    public static boolean canSyncStepToday(String uid) {
         Statistics stat = getStatistics();
-        return stat.syncStep != stat.day.time;
+        return !stat.syncStepList.contains(uid);
     }
 
-    public static void SyncStepToday() {
+    public static void SyncStepToday(String uid) {
         Statistics stat = getStatistics();
-        if (stat.syncStep != stat.day.time) {
-            stat.syncStep = stat.day.time;
+        if (!stat.syncStepList.contains(uid)) {
+            stat.syncStepList.add(uid);
             save();
         }
     }
@@ -460,14 +461,15 @@ public class Statistics {
         Statistics stat = getStatistics();
         stat.waterFriendLogList.clear();
         stat.cooperateWaterList.clear();
+        stat.syncStepList.clear();
+        stat.exchangeList.clear();
         stat.reserveLogList.clear();
-        stat.ancientTreeCityCodeList.clear();
+        //        stat.ancientTreeCityCodeList.clear();
         stat.answerQuestionList.clear();
         stat.feedFriendLogList.clear();
         stat.questionHint = null;
         stat.donationEgg = 0;
         stat.memberSignIn = 0;
-        stat.exchange = 0;
         stat.kbSignIn = 0;
         stat.syncStep = 0;
         stat.exchangeDoubleCard = 0;
@@ -493,8 +495,12 @@ public class Statistics {
             stat.answerQuestionList = new ArrayList<>();
         if (stat.feedFriendLogList == null)
             stat.feedFriendLogList = new ArrayList<>();
-        if (stat.ancientTreeCityCodeList == null)
-            stat.ancientTreeCityCodeList = new ArrayList<>();
+//        if (stat.ancientTreeCityCodeList == null)
+//            stat.ancientTreeCityCodeList = new ArrayList<>();
+        if (stat.syncStepList == null)
+            stat.syncStepList = new ArrayList<>();
+        if (stat.exchangeList == null)
+            stat.exchangeList = new ArrayList<>();
         return stat;
     }
 
@@ -555,12 +561,22 @@ public class Statistics {
                 }
             }
 
-            stat.ancientTreeCityCodeList = new ArrayList<>();
+            stat.syncStepList = new ArrayList<>();
 
-            if (jo.has(Config.jn_ancientTreeCityCodeList)) {
-                JSONArray ja = jo.getJSONArray(Config.jn_ancientTreeCityCodeList);
+            if (jo.has(jn_syncStepList)) {
+                JSONArray ja = jo.getJSONArray(jn_syncStepList);
                 for (int i = 0; i < ja.length(); i++) {
-                    stat.ancientTreeCityCodeList.add(ja.getString(i));
+                    stat.syncStepList.add(ja.getString(i));
+
+                }
+            }
+
+            stat.exchangeList = new ArrayList<>();
+
+            if (jo.has(jn_exchangeList)) {
+                JSONArray ja = jo.getJSONArray(jn_exchangeList);
+                for (int i = 0; i < ja.length(); i++) {
+                    stat.exchangeList.add(ja.getString(i));
 
                 }
             }
@@ -609,14 +625,8 @@ public class Statistics {
             if (jo.has(jn_memberSignIn))
                 stat.memberSignIn = jo.getInt(jn_memberSignIn);
 
-            if (jo.has(jn_exchange))
-                stat.exchange = jo.getInt(jn_exchange);
-
             if (jo.has(jn_kbSignIn))
                 stat.kbSignIn = jo.getInt(jn_kbSignIn);
-
-            if (jo.has(jn_syncStep))
-                stat.syncStep = jo.getInt(jn_syncStep);
 
             if (jo.has(jn_exchangeDoubleCard))
                 stat.exchangeDoubleCard = jo.getInt(jn_exchangeDoubleCard);
@@ -684,10 +694,22 @@ public class Statistics {
             jo.put(Config.jn_cooperateWaterList, ja);
 
             ja = new JSONArray();
-            for (int i = 0; i < stat.ancientTreeCityCodeList.size(); i++) {
-                ja.put(stat.ancientTreeCityCodeList.get(i));
+            for (int i = 0; i < stat.syncStepList.size(); i++) {
+                ja.put(stat.syncStepList.get(i));
             }
-            jo.put(Config.jn_ancientTreeCityCodeList, ja);
+            jo.put(jn_syncStepList, ja);
+
+            ja = new JSONArray();
+            for (int i = 0; i < stat.exchangeList.size(); i++) {
+                ja.put(stat.exchangeList.get(i));
+            }
+            jo.put(jn_exchangeList, ja);
+
+//            ja = new JSONArray();
+//            for (int i = 0; i < stat.ancientTreeCityCodeList.size(); i++) {
+//                ja.put(stat.ancientTreeCityCodeList.get(i));
+//            }
+//            jo.put(Config.jn_ancientTreeCityCodeList, ja);
 
             ja = new JSONArray();
             for (int i = 0; i < stat.reserveLogList.size(); i++) {
@@ -722,11 +744,7 @@ public class Statistics {
 
             jo.put(jn_memberSignIn, stat.memberSignIn);
 
-            jo.put(jn_exchange, stat.exchange);
-
             jo.put(jn_kbSignIn, stat.kbSignIn);
-
-            jo.put(jn_syncStep, stat.syncStep);
 
             jo.put(jn_exchangeDoubleCard, stat.exchangeDoubleCard);
 

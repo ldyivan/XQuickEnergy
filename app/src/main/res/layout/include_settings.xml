@@ -411,13 +411,13 @@
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			style="?android:attr/buttonBarButtonStyle"
-			android:text="@string/ancient_tree_citycode_list"
+			android:text="@string/exchange_energy_double_click_count"
 			android:textAllCaps="false"
 			android:onClick="onClick"
 			android:minHeight="50dp"
 			android:gravity="start|center_vertical"
 			android:background="@drawable/button"
-			android:id="@+id/btn_ancientTreeCityCodeList"
+			android:id="@+id/btn_ExchangeEnergyDoubleClickCount"
 			android:paddingStart="8dp"/>
 
 		<CheckBox
@@ -427,6 +427,22 @@
 			android:onClick="onClick"
 			android:minHeight="50dp"
 			android:id="@+id/cb_ancientTreeOnlyWeek"/>
+
+		<CheckBox
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:text="@string/antdodo_collect"
+			android:onClick="onClick"
+			android:minHeight="50dp"
+			android:id="@+id/cb_antdodoCollect"/>
+
+		<CheckBox
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:text="@string/ant_ocean"
+			android:onClick="onClick"
+			android:minHeight="50dp"
+			android:id="@+id/cb_antOcean"/>
 
 	</LinearLayout>
 
@@ -647,6 +663,14 @@
 			android:onClick="onClick"
 			android:minHeight="50dp"
 			android:id="@+id/cb_openTreasureBox"/>
+
+		<CheckBox
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:text="@string/receive_coin_asset"
+			android:onClick="onClick"
+			android:minHeight="50dp"
+			android:id="@+id/cb_receiveCoinAsset"/>
 
 		<CheckBox
 			android:layout_width="match_parent"

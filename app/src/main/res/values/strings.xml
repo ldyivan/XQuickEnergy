@@ -49,6 +49,7 @@
     <string name="other_configuration">OTHER CONFIGURATION</string>
     <string name="receive_point">Receive point</string>
     <string name="open_treasure_box">Open treasure box</string>
+    <string name="receive_coin_asset">Receive coin asset</string>
     <string name="donate_charity_coin">Donate charity coin</string>
     <string name="min_exchange_count">Min exchange count</string>
     <string name="latest_exchange_time_24_hour_system">Latest exchange time (24-hour system)</string>
@@ -89,7 +90,6 @@
     <string name="collect_watering_bubble">Collect watering bubble</string>
     <string name="use_double_card_time">Use double card time</string>
     <string name="animal_sleep_time">Animal sleep time</string>
-    <string name="ancient_tree_area_code_list">Ancient tree area code list</string>
     <string name="visit_github">Visit GitHub</string>
     <string name="visit_qqGround">Visit QQchannel</string>
     <string name="help_wiki">Help Wiki</string>
@@ -100,6 +100,9 @@
     <string name="eco_life_tick">Eco Life Tick</string>
     <string name="ancient_tree">Ancient Tree</string>
     <string name="ancient_tree_citycode_list">Ancient Tree Citycode List</string>
+    <string name="ancient_tree_area_code_list">Ancient tree area code list</string>
     <string name="ancient_tree_only_week">Ancient Tree only week</string>
+    <string name="antdodo_collect">Antdodo Collect</string>
+    <string name="ant_ocean">Ant ocean</string>
 
 </resources>
